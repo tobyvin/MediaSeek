@@ -1,8 +1,4 @@
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    console.log(message);
-    if (message.reqInfo)
-        sendResponse(sender.tab);
-
+chrome.runtime.onMessage.addListener(function (message, sender) {
     if (message.reqFocus)
         chrome.tabs.update(sender.tab.id, { active: true });
 });

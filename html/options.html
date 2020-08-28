@@ -25,26 +25,14 @@
         input {
             max-width: 3em;
         }
-
-        select {
-            max-width: 5em;
-        }
     </style>
 </head>
 
 <body>
     <div id="settings">
         <div id="seek" title="How many seconds each keybind will seek.">
-            <label for="autoView">Seek Incr. (sec)</label>
+            <label for="seekStep">Seek Incr. (sec)</label>
             <input id="seekStep" type="number" value="5" max="30" min="1" step="1">
-        </div>
-        <div id="view" title="Automaticly switch views.">
-            <label for="autoView">Auto View</label>
-            <select id="autoView">
-                <option value="">None</option>
-                <option value="focus">Focus</option>
-                <option value="pip">PiP</option>
-            </select>
         </div>
     </div>
     <div id="status" style="display: none">Options saved!</div>
