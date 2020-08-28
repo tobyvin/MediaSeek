@@ -1,0 +1,44 @@
+{
+    "manifest_version": 2,
+    "name": "Media Seek",
+    "version": "0.0.1",
+    "description": "Converts the Next and Prev media session actions into seek controls",
+    "options_ui": {
+        "page": "html/options.html",
+        "open_in_tab": false
+    },
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.youtube.com/*"
+            ],
+            "run_at": "document_start",
+            "js": [
+                "js/content.js"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "icons/tabplay16x16.png",
+        "32": "icons/tabplay32x32.png",
+        "48": "icons/tabplay48x48.png",
+        "128": "icons/tabplay128x128.png"
+    },
+    "browser_action": {
+        "default_title": "MediaSeek",
+        "default_icon": "icons/tabplay32x32.png",
+        "default_popup": "html/options.html"
+    },
+    "permissions": [
+        "background",
+        "tabs",
+        "storage",
+        "http://*/*",
+        "https://*/*"
+    ]
+}
