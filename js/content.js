@@ -1,4 +1,4 @@
-chrome.storage.sync.get({ seekStep: 5}, function (items) {
+chrome.storage.sync.get({ seekStep: 5 }, function (items) {
     seekStep = parseFloat(items.seekStep);
 });
 
@@ -12,7 +12,9 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
 window.addEventListener("yt-navigate-finish", () => {
     var vid = document.querySelector('Video');
 
-    const focus = () => { chrome.runtime.sendMessage({ reqFocus: true }) }
+    const focus = () =>
+        chrome.runtime.sendMessage({ reqFocus: true });
+
 
     const seek = (details) => {
         switch (details.action) {
@@ -28,7 +30,14 @@ window.addEventListener("yt-navigate-finish", () => {
     const handlers = () => {
         navigator.mediaSession.setActionHandler('previoustrack', seek);
         navigator.mediaSession.setActionHandler('nexttrack', seek);
+        chrome.runtime.sendMessage({ handlers: true });
     }
+
+    // const onplay = () =>
+    //     focus
+
+    // const onseeked = () =>
+    //     focus
 
     setTimeout(handlers, 1000)
     vid.onplaying = handlers;
