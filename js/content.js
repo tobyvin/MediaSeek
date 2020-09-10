@@ -9,7 +9,10 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
     }
 });
 
-window.addEventListener("yt-navigate-finish", () => {
+window.addEventListener("yt-navigate-finish", controller);
+window.addEventListener("load", controller);
+
+var controller = () => {
     var vid = document.querySelector('Video');
 
     const focus = () =>
@@ -43,4 +46,4 @@ window.addEventListener("yt-navigate-finish", () => {
     vid.onplaying = handlers;
     vid.onplay = focus;
     vid.onseeked = focus;
-});
+}

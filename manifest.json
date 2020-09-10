@@ -15,7 +15,8 @@
     "content_scripts": [
         {
             "matches": [
-                "*://www.youtube.com/*"
+                "*://www.youtube.com/*",
+                "*://www.twitch.tv/*"
             ],
             "run_at": "document_start",
             "js": [
