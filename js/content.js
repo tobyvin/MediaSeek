@@ -12,6 +12,9 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
 var controller = () => {
     var vid = document.querySelector('Video');
 
+    if (!vid)
+        return;
+
     const focus = () =>
         chrome.runtime.sendMessage({ reqFocus: true });
 
@@ -45,5 +48,7 @@ var controller = () => {
     vid.onseeked = focus;
 }
 
-window.addEventListener("yt-navigate-finish", controller);
-window.addEventListener("load", controller);
+if (location.href.match("^https?:\/\/www\.youtube\.com\/.*$"))
+    window.addEventListener("yt-navigate-finish", controller);
+else
+    window.addEventListener("load", controller);
