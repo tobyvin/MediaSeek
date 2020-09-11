@@ -1,3 +1,5 @@
+console.log("Script Injected");
+
 chrome.storage.sync.get({ seekStep: 5 }, function (items) {
     seekStep = parseFloat(items.seekStep);
 });
@@ -13,6 +15,7 @@ window.addEventListener("yt-navigate-finish", controller);
 window.addEventListener("load", controller);
 
 var controller = () => {
+    console.log("Event Fired");
     var vid = document.querySelector('Video');
 
     const focus = () =>

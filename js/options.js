@@ -26,5 +26,11 @@ function restore_options() {
         document.getElementById('seekStep').value = items.seekStep;
     });
 }
+
+function reload() {
+    chrome.runtime.reload()
+}
+
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
+document.getElementById('reload').addEventListener('click', reload);
