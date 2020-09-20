@@ -9,7 +9,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
     }
 });
 
-var controller = () => {
+const controller = () => {
     var vid = document.querySelector('Video');
 
     if (!vid)
