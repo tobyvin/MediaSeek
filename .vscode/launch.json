@@ -5,12 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach YT",
-            "type": "edge",
-            "request": "attach",
-            "port": 2015,
-            "urlFilter": "https://www.youtube.com/watch?*",
-            "webRoot": "${workspaceFolder}"
+            "type": "pwa-msedge",
+            "name": "Debug - Youtube.com",
+            "request": "launch",
+            "url": "https://www.youtube.com"
         }
     ]
 }
