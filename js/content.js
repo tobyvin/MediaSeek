@@ -15,10 +15,6 @@ const controller = () => {
     if (!vid)
         return;
 
-    const focus = () =>
-        chrome.runtime.sendMessage({ reqFocus: true });
-
-
     const seek = (details) => {
         switch (details.action) {
             case "nexttrack":
@@ -33,19 +29,10 @@ const controller = () => {
     const handlers = () => {
         navigator.mediaSession.setActionHandler('previoustrack', seek);
         navigator.mediaSession.setActionHandler('nexttrack', seek);
-        chrome.runtime.sendMessage({ handlers: true });
     }
-
-    // const onplay = () =>
-    //     focus
-
-    // const onseeked = () =>
-    //     focus
-
+    
     setTimeout(handlers, 1000)
     vid.onplaying = handlers;
-    vid.onplay = focus;
-    vid.onseeked = focus;
 }
 
 if (location.href.match("^https?:\/\/www\.youtube\.com\/.*$"))

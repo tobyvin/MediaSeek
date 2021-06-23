@@ -7,11 +7,6 @@
         "page": "html/options.html",
         "open_in_tab": false
     },
-    "background": {
-        "scripts": [
-            "js/background.js"
-        ]
-    },
     "content_scripts": [
         {
             "matches": [
